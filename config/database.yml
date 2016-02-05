@@ -1,0 +1,26 @@
+development: &development
+  adapter: postgresql
+  encoding: unicode
+  database: ama-china
+  pool: 5
+  username: postgres
+  password: 1234123
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: ama-china_test
+  pool: 5
+  username: postgres
+  password: 1234123
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: ama-china
+  pool: 5
+  username: postgres
+  password: 1234123
+  host: localhost
