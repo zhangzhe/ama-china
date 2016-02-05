@@ -1,0 +1,15 @@
+<div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <% li_class = current_page?(root_path) ? "active" : "" %>
+      <li role="presentation" class="<%= li_class %>"><a href="<%= "#{request.protocol}#{request.host_with_port}" %>">AMA首页</a></li>
+      <% if current_admin %>
+        <li><%= link_to "退出", destroy_admin_session_path, :method => "DELETE" %></li>
+      <% else %>
+        <% li_class = current_page?(new_admin_session_path) ? "active" : "" %>
+        <li class="<%= li_class %>"><%= link_to "登录", new_admin_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+  <h3 class="text-muted">AMA-China</h3>
+</div>
