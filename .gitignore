@@ -1,6 +1,6 @@
 *.rbc
 capybara-*.html
-
+.byebug_history
 /log
 /tmp
 /db/*.sqlite3
