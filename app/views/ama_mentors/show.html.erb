@@ -1,0 +1,18 @@
+<div class="jumbotron">
+  <div class="text-center">
+    <%= image_tag(@ama_mentor.avatar_url, :class => "img-thumbnail", :size => "200x200") if @ama_mentor.avatar? %>
+    <h2>AMA with <%= @ama_mentor.mentor_name %></h2>
+    <div><%= @ama_mentor.mentor_title %></div>
+  </div>
+</div>
+<div style="word-break:break-all;">
+  <%= @ama_mentor.content.html_safe %>
+</div>
+<br>
+<div id="comment_form_01">
+  <hr>
+  <br>
+  <p class="text-right">共收到x个提问</p>
+  <br><br>
+</div>
+

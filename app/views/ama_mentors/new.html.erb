@@ -1,0 +1,31 @@
+<%= bootstrap_flash %>
+<%= form_for @ama_mentor, html: { multipart: true } do |f|  %>
+  <div class="row">
+    <div class="col-xs-6">
+      <%= text_field_tag :mentor_email, @ama_mentor.mentor.try(:email), class: "form-control", placeholder: '登录邮箱' %>
+    </div>
+    <div class="col-xs-6">
+      <%= text_field_tag :mentor_password, "", class: "form-control", placeholder: '登录密码' %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.text_field :mentor_name, class: "form-control", placeholder: '姓名' %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.text_field :mentor_title, class: "form-control", placeholder: '职业描述' %>
+    </div>
+  </div>
+  <br>
+  <p>
+    照片
+    <%= image_tag(@ama_mentor.avatar_url, :class => "img-circle", :size => "60x60") if @ama_mentor.avatar? %>
+    <%= f.file_field :avatar %>
+  </p>
+  <p><%= f.text_area :content, class: "form-control froala_editor", rows: 16 %></p>
+  <br>
+  <p>
+    <%= f.submit "发布", class: "btn btn-primary", data: { disable_with: '提交中...' } %>
+  </p>
+<% end %>

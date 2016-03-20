@@ -1,0 +1,2 @@
+module AmaMentorsHelper
+end
