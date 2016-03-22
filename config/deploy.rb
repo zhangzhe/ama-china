@@ -12,7 +12,7 @@ set :repo_url, 'git@github.com:zhangzhe/ama-china.git'
 set :deploy_to, '/home/deploy/ama-china'
 set :branch, "develop"
 set :linked_files, %w{config/database.yml config/secrets.yml}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads/ama_mentor/avatar}
 
 
 set :unicorn_config_path, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
