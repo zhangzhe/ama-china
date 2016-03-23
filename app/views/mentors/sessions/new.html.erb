@@ -1,9 +1,11 @@
-<%= form_for(Mentor.new, as: "mentor", url: session_path("mentor")) do |f| %>
-  <h2 class="text-center">分享者登录</h2>
-  <br>
-  <%= f.email_field :email, autofocus: true, :class => "form-control input-lg", :placeholder => "邮箱" %><br>
+<div class="jumbotron">
+  <%= form_for(Mentor.new, as: "mentor", url: session_path("mentor")) do |f| %>
+    <h2 class="text-center">分享者登录</h2>
+    <br>
+    <%= f.email_field :email, autofocus: true, :class => "form-control input-lg", :placeholder => "邮箱" %><br>
 
-  <%= f.password_field :password, autocomplete: "off", :class => "form-control input-lg", :placeholder => "密码" %>
-  <br>
-  <%= f.submit "登录", :class => "btn btn-default btn-lg btn-block btn-primary" %>
-<% end %>
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control input-lg", :placeholder => "密码" %>
+    <br>
+    <%= f.submit "登录", :class => "btn btn-default btn-lg btn-block btn-primary" %>
+  <% end %>
+</div>

@@ -11,13 +11,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag %>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
+
     <div class="navbar-wrapper">
       <div class="container">
 
@@ -30,153 +26,30 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" style="color:#F5F5F5" href="<%= "#{request.protocol}#{request.host_with_port}" %>">AMA China</a>
+              <a class="navbar-brand" href="<%= "#{request.protocol}#{request.host_with_port}" %>">AMA China</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="/" style="color:#F5F5F5">首页</a></li>
-                <li><a href="#about" style="color:#F5F5F5">什么是AMA</a></li>
-                <li><a href="#contact" style="color:#F5F5F5">关于我们</a></li>
+                <li><a href="<%= "#{request.protocol}#{request.host_with_port}" %>">首页</a></li>
+                <li><a href="#about">什么是AMA</a></li>
+                <li><a href="#contact">关于我们</a></li>
+                <% if current_mentor %>
+                <li><%= link_to "退出", destroy_mentor_session_path, { :method => "DELETE"} %></li>
+                <% elsif current_admin %>
+                <li><%= link_to "退出", destroy_admin_session_path, { :method => "DELETE"} %></li>
+                <% else %>
+                <li><%= link_to "分享者登录", new_mentor_session_path %></li>
+                <li><%= link_to "管理员登录", new_admin_session_path %></li>
+                <% end %>
+
               </ul>
             </div>
           </div>
         </nav>
-
       </div>
     </div>
-
-
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <%= image_tag 'ama1.jpg', class: 'first-slide' %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>提问，倾听他人的经验和建议</h1>
-              <h1>回答，分享自己的经历和见解</h1><br>
-              <br>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">了解更多</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag 'ama2.jpg', class: 'second-slide' %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Ask Me Anything － 领域</h1>
-              <br>
-              <p>我是领域的专家或狂热爱好者，我会回答这一领域的任何问题</p>
-              <br>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">了解更多</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag 'ama3.jpg', class: 'second-slide' %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Ask Me Anything － 经历</h1>
-              <br>
-              <p>我经历过一件很酷很有趣的事情，您可以针对这类事情问您感兴趣的问题</p>
-              <br>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">了解更多</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-
-    <div class="container marketing">
-      <div class="row">
-        <div class="col-lg-4">
-          <%= image_tag 'mentor1.jpg', :class => "img-circle", :size => "140x140" %>
-          <h3>袁芳芳</h3>
-          <p><div class="text-muted">发型设计中心首席发型设计师</div></p>
-          <p>我生活在澳大利亚墨尔本前前后后 15 年了（对海外生活感兴趣的欢迎提问）。从事 Ruby 编程也有相当一阵子了，最早发现 ruby 的时候，rails 还是 0.10.x 版本。近几年来基本上游走在带领团队这一部分。</p>
-          <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <%= image_tag 'mentor2.jpg', :class => "img-circle", :size => "140x140" %>
-          <h3>兰启昌</h3>
-          <p><div class="text-muted">轻客科技市场总监</div></p>
-          <p>我生活在澳大利亚墨尔本前前后后 15 年了（对海外生活感兴趣的欢迎提问）。从事 Ruby 编程也有相当一阵子了，最早发现 ruby 的时候，rails 还是 0.10.x 版本。近几年来基本上游走在带领团队这一部分。</p>
-          <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <%= image_tag 'mentor3.jpg', :class => "img-circle", :size => "140x140" %>
-          <h3>卞栎淳</h3>
-          <p><div class="text-muted">衣橱管理行业创始人</div></p>
-          <p>我生活在澳大利亚墨尔本前前后后 15 年了（对海外生活感兴趣的欢迎提问）。从事 Ruby 编程也有相当一阵子了，最早发现 ruby 的时候，rails 还是 0.10.x 版本。近几年来基本上游走在带领团队这一部分。</p>
-          <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-
-      <!-- START THE FEATURETTES -->
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">我经常和礼仪模特打交道，你们有什么要问的嘛？</h2>
-          <p class="lead"> 我也来说说我的故事吧，文笔不好，可能像是记流水账形式：楼主大学在南方三线小城市读的，楼主专业是化工！！！当时也不知道怎么就选择了这坑爹专业！大学13年毕业之后去到海南实习。 </p>
-          <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div>
-        <div class="col-md-5">
-          <%= image_tag 'topic1.jpg', :class => "featurette-image img-responsive center-block" %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">我是漫画咖啡店店员：你们有什么要问的吗？</h2>
-          <p class="lead">在日本，有一种独特的二次元性质店铺，这就是漫画咖啡店。而近日，一名自称是在漫画咖啡店工作的日本网友在网上发出了“你们有什么要问的吗”话题，这也引发了不少关注 ...... </p>
-          <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <%= image_tag 'topic2.jpg', :class => "featurette-image img-responsive center-block" %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">我是北医三院护士，你们有什么要问的？</h2>
-          <p class="lead"><p><p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div>
-        <div class="col-md-5">
-          <%= image_tag 'topic3.jpg', :class => "featurette-image img-responsive center-block" %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-      <!-- /END THE FEATURETTES -->
-
-
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-         <p>&copy;  gary.zzhang@gmail.com 2015</p><p><%= Rails.root.to_s.match(/\d+/).to_s %></p>
-      </footer>
-
+    <div class="container">
+      <%= yield %>
     </div>
   </body>
 </html>
