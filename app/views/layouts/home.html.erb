@@ -30,8 +30,7 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li><a href="<%= "#{request.protocol}#{request.host_with_port}" %>" style="color:#F5F5F5">首页</a></li>
-                <li><a href="#about" style="color:#F5F5F5">什么是AMA</a></li>
-                <li><a href="#contact" style="color:#F5F5F5">关于我们</a></li>
+                <li><a href="#whatisama" style="color:#F5F5F5">什么是AMA</a></li>
                 <% if current_mentor %>
                   <li><%= link_to "退出", destroy_mentor_session_path, { :style => "color:#F5F5F5", :method => "DELETE"} %></li>
                 <% elsif current_admin %>
@@ -68,7 +67,7 @@
               <h1>提问，倾听他人的经验和建议</h1>
               <h1>回答，分享自己的经历和见解</h1><br>
               <br>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">了解更多</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#whatisama" role="button">了解更多</a></p>
             </div>
           </div>
         </div>
@@ -78,9 +77,9 @@
             <div class="carousel-caption">
               <h1>Ask Me Anything － 领域</h1>
               <br>
-              <p>我是领域的分享者或狂热爱好者，我会回答这一领域的任何问题</p>
+              <p>我是某领域的分享者或狂热爱好者，我会回答这一领域的任何问题</p>
               <br>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">了解更多</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#amamentor" role="button">我要提问</a></p>
             </div>
           </div>
         </div>
@@ -92,7 +91,7 @@
               <br>
               <p>我经历过一件很酷很有趣的事情，您可以针对这类事情问您感兴趣的问题</p>
               <br>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">了解更多</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#amatopic" role="button">我要提问</a></p>
             </div>
           </div>
         </div>
@@ -106,7 +105,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-
+    <a name="amamentor"></a>
     <div class="container marketing">
       <div class="row">
         <div class="col-lg-4">
@@ -136,7 +135,7 @@
       <!-- START THE FEATURETTES -->
 
       <hr class="featurette-divider">
-
+      <a name="amatopic"></a>
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">我经常和礼仪模特打交道，你们有什么要问的嘛？</h2>
@@ -175,12 +174,24 @@
 
       <hr class="featurette-divider">
       <!-- /END THE FEATURETTES -->
-
+      <a name="whatisama"></a>
+      <div class="jumbotron">
+        <h3 style="text-shadow: 0 0 24px rgba(0,0,0,.64);">
+          什么是AMA？
+        </h3>
+        <br>
+        <h4>
+          AMA是Ask me anything的简写，起源于reddit。
+          <br><br>是一种针对某人或者某个话题进行提问和回答的互动方式。
+          <br><br>每一个AMA都会邀请一个题主，他会回答您提出的任何问题。
+        </h4>
+      </div>
+      <hr class="featurette-divider">
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-         <p>&copy;  gary.zzhang@gmail.com 2015</p><p><%= Rails.root.to_s.match(/\d+/).to_s %></p>
+         <p>&copy;  gary.zzhang@gmail.com</p><p><%= Rails.root.to_s.match(/\d+/).to_s %></p>
       </footer>
-      <%= bootstrap_flash %>
+      <!-- <%= bootstrap_flash %> -->
 
     </div>
   </body>
