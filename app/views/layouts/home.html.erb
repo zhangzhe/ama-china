@@ -35,6 +35,7 @@
                 <% if current_mentor %>
                   <li><%= link_to "退出", destroy_mentor_session_path, { :style => "color:#F5F5F5", :method => "DELETE"} %></li>
                 <% elsif current_admin %>
+                  <li><%= link_to "新建 Ama Mentor", new_ama_mentor_path, { :style => "color:#F5F5F5" } %></li>
                   <li><%= link_to "退出", destroy_admin_session_path, { :style => "color:#F5F5F5", :method => "DELETE"} %></li>
                 <% else %>
                   <li><%= link_to "分享者登录", new_mentor_session_path, { :style => "color:#F5F5F5" } %></li>
@@ -174,7 +175,6 @@
 
       <hr class="featurette-divider">
       <!-- /END THE FEATURETTES -->
-
 
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
