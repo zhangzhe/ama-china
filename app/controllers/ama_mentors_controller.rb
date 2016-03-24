@@ -1,4 +1,5 @@
 class AmaMentorsController < ApplicationController
+  layout "ama"
   def new
     @ama_mentor = AmaMentor.new
   end
