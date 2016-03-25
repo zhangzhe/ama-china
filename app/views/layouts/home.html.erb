@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="AMA China (ask me anything) 提问 回答 分享 学习 个人知识管理和分享">
+    <meta name="description" content="AMA China (ask me anything) 提问 回答 个人知识管理和分享">
     <meta name="author" content="zhangzhe">
     <title>AMA China</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -40,18 +40,13 @@
                   <li><%= link_to "分享者登录", new_mentor_session_path, { :style => "color:#F5F5F5" } %></li>
                   <li><%= link_to "管理员登录", new_admin_session_path, { :style => "color:#F5F5F5" } %></li>
                 <% end %>
-
               </ul>
             </div>
           </div>
         </nav>
-
       </div>
     </div>
 
-
-    <!-- Carousel
-    ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -75,9 +70,9 @@
           <%= image_tag 'ama2.jpg', class: 'second-slide' %>
           <div class="container">
             <div class="carousel-caption">
-              <h1>Ask Me Anything － 领域</h1>
+              <h1>（AMA）Ask Me Anything</h1>
               <br>
-              <p>我是某领域的分享者或狂热爱好者，我会回答这一领域的任何问题</p>
+              <p>我是某领域的专家或狂热爱好者，我会回答您的的任何问题</p>
               <br>
               <p><a class="btn btn-lg btn-primary" href="#amamentor" role="button">我要提问</a></p>
             </div>
@@ -87,7 +82,7 @@
           <%= image_tag 'ama3.jpg', class: 'second-slide' %>
           <div class="container">
             <div class="carousel-caption">
-              <h1>Ask Me Anything － 经历</h1>
+              <h1>酷的经历</h1>
               <br>
               <p>我经历过一件很酷很有趣的事情，您可以针对这类事情问您感兴趣的问题</p>
               <br>
@@ -108,38 +103,23 @@
     <a name="amamentor"></a>
     <div class="container marketing">
       <div class="row">
-        <div class="col-lg-4">
-          <%= image_tag 'mentor1.jpg', :class => "img-circle", :size => "140x140" %>
-          <h3>袁芳芳</h3>
-          <p><div class="text-muted">发型设计中心首席发型设计师</div></p>
-          <p>我生活在澳大利亚墨尔本前前后后 15 年了（对海外生活感兴趣的欢迎提问）。从事 Ruby 编程也有相当一阵子了，最早发现 ruby 的时候，rails 还是 0.10.x 版本。近几年来基本上游走在带领团队这一部分。</p>
-          <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <%= image_tag 'mentor2.jpg', :class => "img-circle", :size => "140x140" %>
-          <h3>兰启昌</h3>
-          <p><div class="text-muted">轻客科技市场总监</div></p>
-          <p>我生活在澳大利亚墨尔本前前后后 15 年了（对海外生活感兴趣的欢迎提问）。从事 Ruby 编程也有相当一阵子了，最早发现 ruby 的时候，rails 还是 0.10.x 版本。近几年来基本上游走在带领团队这一部分。</p>
-          <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <%= image_tag 'mentor3.jpg', :class => "img-circle", :size => "140x140" %>
-          <h3>卞栎淳</h3>
-          <p><div class="text-muted">衣橱管理行业创始人</div></p>
-          <p>我生活在澳大利亚墨尔本前前后后 15 年了（对海外生活感兴趣的欢迎提问）。从事 Ruby 编程也有相当一阵子了，最早发现 ruby 的时候，rails 还是 0.10.x 版本。近几年来基本上游走在带领团队这一部分。</p>
-          <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
+
+        <% @ama_mentors.each do |ama| %>
+          <div class="col-lg-4">
+            <%= link_to image_tag(ama.avatar_url, :class => "img-circle", :size => "140x140"), ama %>
+            <h3><%= ama.mentor_name %></h3>
+            <p><div class="text-muted"><%= ama.mentor_title %></div></p>
+            <div style="text-align: left;"><%= simple_format ama.brief %></div>
+            <p><%= link_to "我要提问", ama, :class => "btn btn-default" %></p>
+          </div><!-- /.col-lg-4 -->
+        <% end %>
       </div><!-- /.row -->
-
-
       <!-- START THE FEATURETTES -->
-
       <hr class="featurette-divider">
       <a name="amatopic"></a>
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">我经常和礼仪模特打交道，你们有什么要问的嘛？</h2>
-          <p class="lead"> 我也来说说我的故事吧，文笔不好，可能像是记流水账形式：楼主大学在南方三线小城市读的，楼主专业是化工！！！当时也不知道怎么就选择了这坑爹专业！大学13年毕业之后去到海南实习。 </p>
           <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
         </div>
         <div class="col-md-5">
@@ -152,7 +132,7 @@
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
           <h2 class="featurette-heading">我是漫画咖啡店店员：你们有什么要问的吗？</h2>
-          <p class="lead">在日本，有一种独特的二次元性质店铺，这就是漫画咖啡店。而近日，一名自称是在漫画咖啡店工作的日本网友在网上发出了“你们有什么要问的吗”话题，这也引发了不少关注 ...... </p>
+          <p class="lead">漫画咖啡店，是一种独特的二次元性质店铺。它并非是一种咖啡店，而是一种24小时营业的漫画吧，按小时数来收费，提供免费的咖啡和茶。有的漫画咖啡馆还有小食供应，但小食一般要另外收费。现在很多漫画咖啡馆都是“超范围”经营，除了提供漫画阅览外，还提供电玩、电脑上网等服务，可说是“漫画吧”、“网吧”、“电玩吧”的结合。 </p>
           <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
         </div>
         <div class="col-md-5 col-md-pull-7">
@@ -189,10 +169,9 @@
       <hr class="featurette-divider">
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-         <p>&copy;  gary.zzhang@gmail.com</p><p><%= Rails.root.to_s.match(/\d+/).to_s %></p>
+         <p>&copy;  gary.zzhang@gmail.com</p><p><%= Rails.root.to_s.match(/\d+/).to_s if current_admin %></p>
       </footer>
       <!-- <%= bootstrap_flash %> -->
-
     </div>
   </body>
 </html>

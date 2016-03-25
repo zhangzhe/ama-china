@@ -1,5 +1,10 @@
 class AmaMentorsController < ApplicationController
   layout "ama"
+
+  def show
+    @ama_mentor = AmaMentor.find(params[:id])
+  end
+
   def new
     @ama_mentor = AmaMentor.new
   end
@@ -22,13 +27,26 @@ class AmaMentorsController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @ama_mentor = AmaMentor.find(params[:id])
+  end
+
+  def update
+    @ama_mentor = AmaMentor.find(params[:id])
+    @mentor = @ama_mentor.mentor
+    updated_ama_params = ama_params.delete_if { |k, v| v.blank? }
+    updated_mentor_params = mentor_params.delete_if { |k, v| v.blank? }
+    if @ama_mentor.update(updated_ama_params) && @mentor.update(updated_mentor_params)
+      redirect_to @ama_mentor, notice: '更新成功'
+    else
+      flash.now[:error] = @ama_mentor.errors.full_messages.first || @mentor.errors.full_messages.first
+      render 'edit'
+    end
   end
 
   private
   def ama_params
-    params.require(:ama_mentor).permit(:avatar, :mentor_name, :mentor_title, :content)
+    params.require(:ama_mentor).permit(:avatar, :mentor_name, :mentor_title, :brief, :content)
   end
 
   def mentor_params

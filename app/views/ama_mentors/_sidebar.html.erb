@@ -1,0 +1,22 @@
+<div class="sidebar-module">
+  <p>
+    <div class="sidebar-module sidebar-module-inset">
+      <h2><%= link_to "AMA China", root_path %></h2>
+      <h3>
+        提问<br>倾听经验和建议
+      </h3>
+      <h3>
+        回答<br>分享经历和见解
+      </h3>
+      <br>
+    </div>
+    <hr>
+    <h4>更多AMA</h4>
+    <ol class="list-unstyled">
+      <% AmaMentor.all.each do |ama| %>
+        <li><%= link_to "#{ama.mentor_name}－#{ama.mentor_title}", ama %></li>
+      <% end %>
+    </ol>
+    <h4>更多经历</h4>
+  </p>
+</div>

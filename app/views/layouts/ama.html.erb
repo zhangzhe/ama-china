@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="AMA China (ask me anything) 提问 回答 分享 学习 个人知识管理和分享">
+    <meta name="description" content="AMA China (ask me anything) 提问 回答 个人知识管理和分享">
     <meta name="author" content="zhangzhe">
     <title>AMA China</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -46,7 +46,6 @@
           </div>
         </nav>
       </div>
-
     </div>
 
     <div class="container-fluid">
@@ -54,64 +53,13 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
           <div class="container-fluid">
             <div class="row">
+
               <div class="col-sm-9" style="padding-top: 15px;">
-                <div class="blog-post">
-                  <div class="jumbotron">
-                    <div class="text-center">
-                      <%= image_tag 'mentor2.jpg', :class => "img-thumbnail", :size => "200x200" %>
-                      <h2>AMA with sss</h2>
-                      <div>Gary strong</div>
-                    </div>
-                  </div>
-                  <div style="word-break:break-all;">
-
-                    做Rails开发挺久的了，从1.x版本一直到近期的4.x，见证了Rails的逐步壮大和完善。目前依然还是很感兴趣，不断学习相关和衍生技术。我愿意在能力范围内回答关于开发相关的各种问题。
-                    除了创业也在大公司做过挺久的（甲骨文、广联达），也曾经在美国有过不长的工作经历。关于工作和创业的问题也可以一起探讨。
-                    至于有同好的同学更是欢迎讨论:)
-                  </div>
-                  <br>
-                  <div id="comment_form_01">
-                    <hr>
-                    <br>
-                    <p class="text-right">共收到x个提问</p>
-                    <br><br>
-                  </div>
-
-                  <div class="bottom-column" id="commit_button">
-                    <%= link_to "我要提问", "#comment_form_01", class: "btn btn-success btn-lg" %>
-                  </div>
-                  <br>
-                  xxxsss
-                </div>
+                <%= bootstrap_flash %>
+                <%= yield :main %>
               </div><!-- /.blog-main -->
               <div class="col-sm-3 blog-sidebar">
-                <div class="sidebar-module">
-                  <p>
-                    <div class="sidebar-module sidebar-module-inset">
-                      <h2><%= link_to "AMA China", root_path %></h2>
-                      <h3>
-                        提问，倾听他人的经验和建议
-                      </h3>
-                      <h3>
-                        回答，分享自己的经历和见解
-                      </h3>
-                      <br>
-                    </div>
-                    <hr>
-                    <h4>更多访谈</h4>
-                    <ol class="list-unstyled">
-                      <li><%= link_to "黄巧珍－首席捣乱官", "" %></li><br>
-                      <li><%= link_to "黄巧珍－首席捣乱官", "" %></li><br>
-                      <li><%= link_to "黄巧珍－首席捣乱官", "" %></li><br>
-                    </ol>
-
-                    <hr>
-                    <% if current_admin %>
-                      <%= link_to "修改访谈", "", class: "btn btn-primary" %>
-
-                    <% end %>
-                  </p>
-                </div>
+                <%= yield :sidebar %>
               </div>
             </div>
           </div>

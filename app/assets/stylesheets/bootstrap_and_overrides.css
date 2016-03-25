@@ -11,3 +11,9 @@
     text-decoration: none;
     background-color: transparent;
 }
+
+.sidebar-module-inset {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}

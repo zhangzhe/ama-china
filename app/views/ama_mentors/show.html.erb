@@ -1,18 +1,31 @@
-<div class="jumbotron">
-  <div class="text-center">
-    <%= image_tag(@ama_mentor.avatar_url, :class => "img-thumbnail", :size => "200x200") if @ama_mentor.avatar? %>
-    <h2>AMA with <%= @ama_mentor.mentor_name %></h2>
-    <div><%= @ama_mentor.mentor_title %></div>
+<% content_for :main do %>
+  <div class="jumbotron">
+    <div class="text-center">
+      <%= image_tag(@ama_mentor.avatar_url, :class => "img-thumbnail", :size => "200x200") if @ama_mentor.avatar? %>
+      <h2>AMA with <%= @ama_mentor.mentor_name %></h2>
+      <div><%= @ama_mentor.mentor_title %></div>
+      <br>
+      <div><%= @ama_mentor.brief %></div>
+    </div>
   </div>
-</div>
-<div style="word-break:break-all;">
-  <%= @ama_mentor.content.html_safe %>
-</div>
-<br>
-<div id="comment_form_01">
-  <hr>
+  <div style="word-break:break-all;">
+    <%= @ama_mentor.content.html_safe %>
+  </div>
   <br>
-  <p class="text-right">共收到x个提问</p>
-  <br><br>
-</div>
+  <div id="comment_form_01">
+    <% if current_admin %>
+      <hr>
+      <div class="pull-right"><%= link_to "修改AMA", edit_ama_mentor_path(@ama_mentor), class: "btn btn-primary text-right" %></div>
+      <br><br>
+    <% end %>
+    <hr>
+    <p class="text-right">共收到x个提问</p>
+    <br>
+  </div>
+<% end %>
+
+
+<% content_for :sidebar do %>
+  <%= render "sidebar" %>
+<% end %>
 
