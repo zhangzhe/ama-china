@@ -1,0 +1,14 @@
+<% title_class = (i%2 < 1) ? "col-md-7" : "col-md-7 col-md-push-5" %>
+<% image_class = (i%2 < 1) ? "col-md-5" : "col-md-5 col-md-pull-7" %>
+
+<div class="row featurette">
+  <div class="<%= title_class %>">
+    <h2 class="featurette-heading"><%= topic.title %></h2>
+    <p><%= link_to "我要提问", topic, class: "btn btn-default"%>
+  </div>
+  <div class="<%= image_class %>">
+    <%= image_tag topic.image_url, :class => "featurette-image img-responsive center-block" %>
+  </div>
+</div>
+
+<hr class="featurette-divider">

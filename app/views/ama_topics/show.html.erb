@@ -1,0 +1,39 @@
+<% content_for :main do %>
+  <div class="jumbotron">
+    <div class="text-center">
+      <h2><%= @ama_topic.title %></h2>
+      <div><%= @ama_topic.mentor_name %></div>
+    </div>
+  </div>
+  <%= image_tag(@ama_topic.image_url, :class => "img-thumbnail") if @ama_topic.image? %>
+  <div style="word-break:break-all;">
+    <%= @ama_topic.content.html_safe %>
+  </div>
+  <br>
+  <div id="comment_form_01">
+    <% if current_admin %>
+      <hr>
+      <div class="pull-right"><%= link_to "修改AMA", edit_ama_topic_path(@ama_topic), class: "btn btn-primary text-right" %></div>
+      <br><br>
+    <% end %>
+
+    <div id="comment_form_01">
+      <hr>
+      <p class="text-right">共收到<%= @ama_topic.questions_count %>个提问</p>
+      <br>
+      <p>
+        <%= render partial: "/comments/comment_form", locals: {ama: @ama_topic} %>
+      </p>
+
+    </div>
+    <div class="bottom-column" id="commit_button"></div>
+    <hr>
+    <br>
+    <% @comments = @ama_topic.comments.hash_tree %>
+    <%= comments_tree_for @comments %>
+  </div>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render "/shared/ama_sidebar" %>
+<% end %>

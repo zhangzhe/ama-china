@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328031952) do
+ActiveRecord::Schema.define(version: 20160328074244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20160328031952) do
     t.integer  "mentor_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "image"
+    t.string   "title"
   end
 
   create_table "comment_hierarchies", id: false, force: :cascade do |t|

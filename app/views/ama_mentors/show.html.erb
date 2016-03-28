@@ -24,7 +24,7 @@
       <p class="text-right">共收到<%= @ama_mentor.questions_count %>个提问</p>
       <br>
       <p>
-        <%= render "/comments/comment_form" %>
+        <%= render partial: "/comments/comment_form", locals: {ama: @ama_mentor} %>
       </p>
 
     </div>
@@ -36,8 +36,6 @@
   </div>
 <% end %>
 
-
 <% content_for :sidebar do %>
-  <%= render "sidebar" %>
+  <%= render "/shared/ama_sidebar" %>
 <% end %>
-

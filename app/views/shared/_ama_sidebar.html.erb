@@ -17,6 +17,12 @@
         <li><%= link_to "#{ama.mentor_name}－#{ama.mentor_title}", ama %></li>
       <% end %>
     </ol>
+    <br><br>
     <h4>更多经历</h4>
+    <ol class="list-unstyled">
+      <% AmaTopic.all.each do |ama| %>
+        <li><%= link_to ama.title, ama %></li>
+      <% end %>
+    </ol>
   </p>
 </div>

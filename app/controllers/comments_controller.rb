@@ -8,8 +8,10 @@ class CommentsController < ApplicationController
       else
         @comment = Comment.new(comment_params)
       end
-      @ama_mentor = AmaMentor.find(params[:ama_mentor_id])
-      if @comment.save && @ama_mentor.comments << @comment
+      @ama_mentor = AmaMentor.find(params[:ama_mentor_id]) if params[:ama_mentor_id]
+      @ama_topic = AmaTopic.find(params[:ama_topic_id]) if params[:ama_topic_id]
+      @ama = @ama_mentor || @ama_topic
+      if @comment.save && @ama.comments << @comment
         format.js {}
       else
         # TODO: error handling

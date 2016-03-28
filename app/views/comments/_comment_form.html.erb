@@ -1,4 +1,5 @@
-<%= form_for [@ama_mentor, Comment.new], :remote => true do |f|  %>
+<%@comment = comment if defined?(comment) %>
+<%= form_for [(@comment.try(:ama) || ama), Comment.new], :remote => true do |f|  %>
   <%= f.hidden_field :parent_id, value: comment.id if defined?(comment) %>
   <%= f.hidden_field :commenter_id, value: current_user.id if current_user %>
   <p>

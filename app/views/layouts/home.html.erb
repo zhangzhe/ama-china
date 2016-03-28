@@ -31,6 +31,7 @@
               <ul class="nav navbar-nav">
                 <li><a href="<%= "#{request.protocol}#{request.host_with_port}" %>" style="color:#F5F5F5">首页</a></li>
                 <li><a href="#whatisama" style="color:#F5F5F5">什么是AMA</a></li>
+                <li><%= link_to "新建酷的经历", new_ama_topic_path, { :style => "color:#F5F5F5" } %></li>
                 <% if current_mentor %>
                   <li><%= link_to "退出", destroy_mentor_session_path, { :style => "color:#F5F5F5", :method => "DELETE"} %></li>
                 <% elsif current_admin %>
@@ -114,46 +115,13 @@
           </div><!-- /.col-lg-4 -->
         <% end %>
       </div><!-- /.row -->
-      <!-- START THE FEATURETTES -->
+
       <hr class="featurette-divider">
       <a name="amatopic"></a>
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">我经常和礼仪模特打交道，你们有什么要问的嘛？</h2>
-          <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div>
-        <div class="col-md-5">
-          <%= image_tag 'topic1.jpg', :class => "featurette-image img-responsive center-block" %>
-        </div>
-      </div>
+      <% AmaTopic.topics_in_home.each_with_index do |topic, i| %>
+        <%= render partial: "featurette_topic", locals: {topic: topic, i: i} %>
+      <% end %>
 
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">我是漫画咖啡店店员：你们有什么要问的吗？</h2>
-          <p class="lead">漫画咖啡店，是一种独特的二次元性质店铺。它并非是一种咖啡店，而是一种24小时营业的漫画吧，按小时数来收费，提供免费的咖啡和茶。有的漫画咖啡馆还有小食供应，但小食一般要另外收费。现在很多漫画咖啡馆都是“超范围”经营，除了提供漫画阅览外，还提供电玩、电脑上网等服务，可说是“漫画吧”、“网吧”、“电玩吧”的结合。 </p>
-          <p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <%= image_tag 'topic2.jpg', :class => "featurette-image img-responsive center-block" %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">我是北医三院护士，你们有什么要问的？</h2>
-          <p class="lead"><p><p><a class="btn btn-default" href="#" role="button">我要提问 &raquo;</a></p>
-        </div>
-        <div class="col-md-5">
-          <%= image_tag 'topic3.jpg', :class => "featurette-image img-responsive center-block" %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-      <!-- /END THE FEATURETTES -->
       <a name="whatisama"></a>
       <div class="jumbotron">
         <h3 style="text-shadow: 0 0 24px rgba(0,0,0,.64);">

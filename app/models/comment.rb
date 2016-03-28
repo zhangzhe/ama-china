@@ -7,4 +7,5 @@ class Comment < ActiveRecord::Base
   def replied_by_author?
     ama.mentor_id == self.commenter_id
   end
+
 end
