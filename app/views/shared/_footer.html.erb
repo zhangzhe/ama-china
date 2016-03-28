@@ -1,3 +1,5 @@
-<footer class="footer">
-  <p>&copy;  gary.zzhang@gmail.com 2015</p><p><%= Rails.root.to_s.match(/\d+/).to_s %></p>
+<hr class="featurette-divider">
+<footer>
+  <p class="pull-right"><a href="#">Back to top</a></p>
+   <p>&copy;  gary.zzhang@gmail.com</p><p><%= Rails.root.to_s.match(/\d+/).to_s if current_admin %></p>
 </footer>

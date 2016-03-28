@@ -13,7 +13,7 @@
   <div id="comment_form_01">
     <% if current_admin %>
       <hr>
-      <div class="pull-right"><%= link_to "修改AMA", edit_ama_topic_path(@ama_topic), class: "btn btn-primary text-right" %></div>
+      <div class="pull-right"><%= link_to "修改AMA", edit_ama_topic_path(@ama_topic), class: "btn btn-primary text-right" if current_admin %></div>
       <br><br>
     <% end %>
 

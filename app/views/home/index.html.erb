@@ -1,17 +1,10 @@
-<div class="jumbotron">
-  <h2>提问，倾听经验和建议</h2>
-  <h2>回答，分享经历和见解</h2>
-  <br>
-  <br>
-  <p><%= link_to "更多", new_ama_mentor_path, class: "btn btn-primary btn-lg" %></p>
-</div>
-
-<div class="row marketing">
-  <% AmaMentor.all.each do |ama_mentor| %>
-    <div class="col-lg-6">
-        <%= image_tag(ama_mentor.avatar_url, :class => "img-circle", :size => "140x140") if ama_mentor.avatar? %>
-        <h4><%= ama_mentor.mentor_name %></h4>
-        <p><%= ama_mentor.mentor_title %></p>
-    </div>
-  <% end %>
+<%= render "nav" %>
+<%= render "slogon" %>
+<div class="container marketing">
+  <div class="row">
+    <%= render "ama_mentors" %>
+  </div>
+  <%= render "ama_topics" %>
+  <%= render "whatisama" %>
+  <%= render "/shared/footer" %>
 </div>

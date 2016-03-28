@@ -1,0 +1,10 @@
+<a name="amamentor"></a>
+<% @ama_mentors.each do |ama| %>
+  <div class="col-lg-4">
+    <%= link_to image_tag(ama.avatar_url, :class => "img-circle", :size => "140x140"), ama %>
+    <h3><%= ama.mentor_name %></h3>
+    <p><div class="text-muted"><%= ama.mentor_title %></div></p>
+    <div style="text-align: left;"><%= simple_format ama.brief %></div>
+    <p><%= link_to "我要提问", ama, :class => "btn btn-default" %></p>
+  </div>
+<% end %>

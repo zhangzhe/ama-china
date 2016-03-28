@@ -20,3 +20,11 @@ h1{
   font-weight: bold;
   text-shadow: 0 0 24px rgba(0,0,0,.64);
 }
+
+.slogon_phone {
+  background: url(/assets/slogon_phone.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+

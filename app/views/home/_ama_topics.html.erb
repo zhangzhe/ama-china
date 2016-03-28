@@ -1,0 +1,5 @@
+<hr class="featurette-divider">
+<a name="amatopic"></a>
+<% AmaTopic.topics_in_home.each_with_index do |topic, i| %>
+  <%= render partial: "featurette_topic", locals: {topic: topic, i: i} %>
+<% end %>
