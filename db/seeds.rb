@@ -1,0 +1,1 @@
+Admin.create!(:email => "gary.zzhang@gmail.com", :password => "gary.zzhang@gmail.com")

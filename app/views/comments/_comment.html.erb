@@ -1,0 +1,28 @@
+<div class="well" id="comment_<%= comment.id %>">
+  <p class="text-muted">
+    <strong><%= comment.commenter_name %></strong>
+    <% if comment.parent %>
+      回复&nbsp;<%= comment.parent.try(:commenter_name) %>  &nbsp;
+    <% end %>
+
+    <%= time_ago_in_words(comment.created_at) %>以前
+  </p>
+
+  <blockquote style="width:auto; word-wrap:break-word;">
+    <% if comment.replied_by_author? %>
+      <strong>
+        <%= simple_format comment.content %>
+      </strong>
+    <% else %>
+      <%= simple_format comment.content %>
+    <% end %>
+  </blockquote>
+
+  <%= link_to "<i class='fa fa-reply'></i> 回复".html_safe, "javascript:void(0)", onclick: "$('#collapseExample#{comment.id}').toggle()" %>&nbsp;&nbsp;&nbsp;
+
+  <div class="collapse" id="collapseExample<%= comment.id %>">
+    <p>
+      <%= render(partial: "/comments/comment_form", locals: {comment: comment}) %>
+    </p>
+  </div>
+</div>

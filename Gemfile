@@ -14,6 +14,7 @@ gem "twitter-bootstrap-rails"
 gem 'devise'
 gem "wysiwyg-rails"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'closure_tree'
 
 group :development, :test do
   gem 'byebug'
