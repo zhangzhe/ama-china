@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :mentors
   devise_for :admins
   root 'home#index'
@@ -10,4 +9,5 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :ama_uploaders, only: ["index", "create"]
 end
