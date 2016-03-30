@@ -1,0 +1,32 @@
+<div class="jumbotron">
+  <div class="container">
+    <h3>请选择要上传的图片：<h3>
+    <%= form_for AmaUploader.new, html: { multipart: true } do |f|  %>
+      <p>
+        <%= f.file_field :image %>
+      </p>
+      <p>
+        <%= f.submit "上传", class: "btn btn-primary", data: { disable_with: '上传中...' } %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <% AmaUploader.all.each_with_index do |file, i| %>
+    <div class="col-md-3 text-center">
+      <p>
+        <%= image_tag file.image_url, :size => "200x200", :class => "img-thumbnail" %><br>
+        <%= link_to "<i class='fa fa-clipboard'></i>".html_safe, 'javascript:void(0)', id: "d_clip_button_#{i}", "data-clipboard-target": "fe_text_#{i}" %>
+        <pre><div id="fe_text_<%= i %>"><%= "#{request.protocol}#{request.host_with_port}#{file.image_url}" %></div></pre>
+      </p>
+    </div>
+    <script>
+      $(document).ready(function() {
+        var clip = new ZeroClipboard($("#d_clip_button_<%=i%>"))
+      });
+    </script>
+  <% end %>
+</div>
+
+

@@ -17,6 +17,7 @@
             <li><a href="<%= "#{request.protocol}#{request.host_with_port}" %>" style="color:#F5F5F5">首页</a></li>
             <li><a href="#whatisama" style="color:#F5F5F5">什么是AMA</a></li>
             <li><%= link_to "新建酷的经历", new_ama_topic_path, { :style => "color:#F5F5F5" } %></li>
+            <li><%= link_to "上传图片", ama_uploaders_path, { :style => "color:#F5F5F5" } %></li>
             <% if current_mentor %>
               <li><%= link_to "退出", destroy_mentor_session_path, { :style => "color:#F5F5F5", :method => "DELETE"} %></li>
             <% elsif current_admin %>

@@ -22,9 +22,8 @@ h1{
 }
 
 .slogon_phone {
-  background: url(/assets/slogon_phone.jpg);
+  background: url(/assets/slogon_phone);
   background-size: cover;
   background-repeat: no-repeat;
   height: 500px;
 }
-
