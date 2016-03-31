@@ -44,7 +44,6 @@ class AmaTopicsController < ApplicationController
     end
   end
 
-
   private
   def ama_params
     params.require(:ama_topic).permit(:image, :mentor_name, :title, :content)

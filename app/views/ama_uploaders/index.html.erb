@@ -18,7 +18,7 @@
       <p>
         <%= image_tag file.image_url, :size => "200x200", :class => "img-thumbnail" %><br>
         <%= link_to "<i class='fa fa-clipboard'></i>".html_safe, 'javascript:void(0)', id: "d_clip_button_#{i}", "data-clipboard-target": "fe_text_#{i}" %>
-        <pre><div id="fe_text_<%= i %>"><%= "#{request.protocol}#{request.host_with_port}#{file.image_url}" %></div></pre>
+        <pre><div id="fe_text_<%= i %>"><%= "#{root_url}#{file.image_url}" %></div></pre>
       </p>
     </div>
     <script>

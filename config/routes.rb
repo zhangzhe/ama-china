@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
+  root 'home#index'
   devise_for :mentors
   devise_for :admins
-  root 'home#index'
-  resources :ama_mentors do
-    resources :comments
-  end
-  resources :ama_topics do
-    resources :comments
-  end
 
-  resources :ama_uploaders, only: ["index", "create"]
+  resources :ama_mentors, except: [:index, :destroy] do
+    resources :comments, only: [:create]
+  end
+  resources :ama_topics, except: [:index, :destroy] do
+    resources :comments, only: [:create]
+  end
+  resources :ama_uploaders, only: [:index, :create]
 end

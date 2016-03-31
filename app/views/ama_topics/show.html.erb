@@ -3,9 +3,10 @@
     <div class="text-center">
       <h2><%= @ama_topic.title %></h2>
       <div><%= @ama_topic.mentor_name %></div>
+      <%= image_tag(@ama_topic.image_url, class: "img-thumbnail", width: '480') if @ama_topic.image? %>
     </div>
   </div>
-  <%= image_tag(@ama_topic.image_url, :class => "img-thumbnail") if @ama_topic.image? %>
+
   <div style="word-break:break-all;">
     <%= @ama_topic.content.html_safe %>
   </div>

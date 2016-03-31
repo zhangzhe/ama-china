@@ -16,7 +16,7 @@
   </div>
   <br>
   <p>
-    照片
+    照片（显示在首页）
     <%= image_tag(@ama_topic.image_url, :class => "img-circle", :size => "60x60") if @ama_topic.image? %>
     <%= f.file_field :image %>
   </p>

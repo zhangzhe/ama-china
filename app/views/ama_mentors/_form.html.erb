@@ -29,7 +29,7 @@
     <%= image_tag(@ama_mentor.avatar_url, :class => "img-circle", :size => "60x60") if @ama_mentor.avatar? %>
     <%= f.file_field :avatar %>
   </p>
-  <p><%= f.text_area :content, class: "form-control froala_editor", rows: 16 %></p>
+  <p><%= f.text_area :content, class: "form-control froala_editor" %></p>
   <br>
   <p>
     <%= f.submit "发布", class: "btn btn-primary", data: { disable_with: '提交中...' } %>
