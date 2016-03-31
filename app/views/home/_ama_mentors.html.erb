@@ -1,5 +1,5 @@
 <a name="amamentor"></a>
-<% @ama_mentors.each do |ama| %>
+<% AmaMentor.all.each do |ama| %>
   <div class="col-lg-4">
     <%= link_to image_tag(ama.avatar_url, :class => "img-circle", :size => "140x140"), ama %>
     <h3><%= ama.mentor_name %></h3>

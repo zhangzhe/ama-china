@@ -18,7 +18,7 @@ class AmaTopicsController < ApplicationController
       ActiveRecord::Base.transaction do
         saved = @mentor.save! && @ama_topic.save!
       end
-    rescue Exception => e
+    rescue => e
       flash.now[:error] = e.message
       render :new
     end
