@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   before_action :detect_browser, :only => [:index]
+
   def index
     @ama_mentors = AmaMentor.all
   end
