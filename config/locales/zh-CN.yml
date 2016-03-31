@@ -1,0 +1,28 @@
+---
+zh-CN:
+  activerecord:
+    attributes:
+      user:
+        email: '邮箱'
+        password: '密码'
+      ama_mentor:
+        avatar: '头像'
+        mentor_name: '姓名'
+        mentor_title: 'Title'
+        content: '内容'
+        brief: '简述'
+      ama_topic:
+        image: '照片'
+        mentor_name: '昵称'
+        title: '标题'
+        content: '内容'
+      ama_uploader:
+        image: '图片'
+      comment:
+        content: '内容'
+        commenter_name: '昵称'
+    errors:
+      messages:
+        record_invalid: '验证失败: %{errors}'
+        blank: "内容不能为空"
+

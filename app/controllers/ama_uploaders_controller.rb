@@ -3,7 +3,8 @@ class AmaUploadersController < ApplicationController
   end
 
   def create
-    if @ama_uploader = AmaUploader.create(uploader_params)
+    @ama_uploader = AmaUploader.new(uploader_params)
+    if @ama_uploader.save
       redirect_to AmaUploader, notice: '创建成功'
     else
       flash.now[:error] = @ama_uploader.errors
@@ -14,6 +15,6 @@ class AmaUploadersController < ApplicationController
   private
 
   def uploader_params
-    params.require(:ama_uploader).permit(:image)
+    params.require(:ama_uploader).permit(:image) if params[:ama_uploader]
   end
 end
