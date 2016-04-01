@@ -1,5 +1,5 @@
 class AmaTopic < ActiveRecord::Base
-  validates_presence_of :image, :mentor_name, :title, :content
+  validates_presence_of :image, :mentor_name, :title
   belongs_to :mentor
   has_many :comments, as: :ama
   mount_uploader :image, AvatarUploader
