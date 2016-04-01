@@ -3,11 +3,11 @@
 
 <div class="row featurette">
   <div class="<%= title_class %>">
-    <h2 class="featurette-heading"><%= topic.title %></h2>
+    <h2 class="featurette-heading"><%= link_to topic.title, topic %></h2>
     <p><%= link_to "我要提问", topic, class: "btn btn-default"%>
   </div>
   <div class="<%= image_class %>">
-    <%= image_tag topic.image_url, :class => "featurette-image img-responsive center-block", width: '480' %>
+    <%= link_to (image_tag topic.image_url, :class => "featurette-image img-responsive center-block", width: '480'), topic %>
   </div>
 </div>
 
