@@ -16,6 +16,7 @@ gem "wysiwyg-rails"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'closure_tree'
 gem 'zeroclipboard-rails'
+gem 'exception_notification'
 
 group :development, :test do
   gem 'byebug'
