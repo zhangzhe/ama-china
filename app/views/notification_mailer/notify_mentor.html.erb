@@ -1,0 +1,6 @@
+<h1><p>尊敬的<%= @ama.mentor_name %>, 您好</p></h1>
+<h4><p>您在AMA China有新的提问如下：</p></h4>
+<h2>
+  <%= @comment.content %> － <%= @comment.commenter_name %>
+  &nbsp;&nbsp;<%= link_to "去回答", @comment.ama %>
+</h2>
