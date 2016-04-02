@@ -83,4 +83,5 @@ Rails.application.configure do
       :sender_address => %{"notifier" <service@ama-china.org>},
       :exception_recipients => %w{398324167@qq.com}
     }
+  config.action_mailer.default_url_options = {:host => "http://ama-china.org/"}
 end
