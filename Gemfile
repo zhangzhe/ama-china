@@ -17,6 +17,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'closure_tree'
 gem 'zeroclipboard-rails'
 gem 'exception_notification'
+gem 'chinese_pinyin'
 
 group :development, :test do
   gem 'byebug'

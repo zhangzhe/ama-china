@@ -11,4 +11,13 @@ class AmaTopic < ActiveRecord::Base
   def self.topics_in_home
     all[0..2]
   end
+
+  def to_param
+    "#{id}-#{slug}"
+  end
+
+  private
+  def slug
+    Pinyin.t(title.downcase).split(' ').join('-')
+  end
 end
